@@ -2,7 +2,7 @@ const runButtons = document.querySelectorAll(".runButton");
 const playersList = document.querySelector(".playerList");
 const playerNameHolder = document.querySelector("#playerName");
 const addPlayer = document.querySelector(".addPlayer");
-
+const resetBtn = document.querySelector(".reset");
 var totalRuns = 0;
 var balls = 0;
 var overs = 0;
@@ -37,7 +37,8 @@ runButtons.forEach((btn) => {
 			wickets++;
 			if (wickets === 10) {
 				alert("Team All Out");
-				wickets = 0;
+				reset();
+				balls--;
 			}
 			showOvers();
 		} else {
@@ -49,6 +50,17 @@ runButtons.forEach((btn) => {
 	});
 });
 
+function reset() {
+	balls = 0;
+	overs = 0;
+	totalRuns = 0;
+	wickets = 0;
+
+	document.querySelector(".overs").textContent = `${overs}.${balls}`;
+	// document.querySelector(".runs").textContent = `${totalRuns}/${wickets}`;
+	displayScoreboard();
+}
+resetBtn.addEventListener("click", reset);
 // addPlayer.addEventListener("click", function () {
 // 	const playerName = playerNameHolder.value;
 

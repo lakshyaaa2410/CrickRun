@@ -29,6 +29,10 @@ button {
 }
 
 .overs {
-	margin: 5% 0;
+	margin: 5% 0 3% 0;
 	font-size: 3rem;
+}
+
+.reset {
+	margin-bottom: 5%;
 }
