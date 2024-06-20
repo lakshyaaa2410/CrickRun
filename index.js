@@ -57,25 +57,6 @@ function reset() {
 	wickets = 0;
 
 	document.querySelector(".overs").textContent = `${overs}.${balls}`;
-	// document.querySelector(".runs").textContent = `${totalRuns}/${wickets}`;
 	displayScoreboard();
 }
 resetBtn.addEventListener("click", reset);
-// addPlayer.addEventListener("click", function () {
-// 	const playerName = playerNameHolder.value;
-
-// 	if (playerName === "") {
-// 		alert("Please enter a name!");
-// 		return;
-// 	}
-// 	const player = `<li>${playerName}</li>`;
-// 	playersList.insertAdjacentHTML("beforeend", player);
-// 	document.querySelector("#playerName").value = "";
-
-// 	const newPlayer = {
-// 		name: playerName,
-// 	};
-
-// 	playerNames.push(newPlayer);
-// 	console.log(playerNames);
-// });
