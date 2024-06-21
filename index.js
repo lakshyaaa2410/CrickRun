@@ -1,14 +1,40 @@
 const runButtons = document.querySelectorAll(".runButton");
-const playersList = document.querySelector(".playerList");
-const playerNameHolder = document.querySelector("#playerName");
-const addPlayer = document.querySelector(".addPlayer");
 const resetBtn = document.querySelector(".reset");
+const toggleMode = document.querySelector(".toggle");
+
 var totalRuns = 0;
 var balls = 0;
 var overs = 0;
 var wickets = 0;
 
-var playerNames = [];
+var darkMode = false;
+
+toggleMode.addEventListener("click", function () {
+	darkMode = !darkMode;
+	toggleMode.innerHTML = darkMode ? "Light Mode" : "Dark Mode";
+
+	document.querySelector("body").style.backgroundColor = darkMode
+		? "#31363F"
+		: "#eeeeee";
+	document.querySelectorAll("h1").forEach((btn) => {
+		btn.style.color = darkMode ? "#F6F5F2" : "black";
+	});
+
+	document.querySelectorAll("button").forEach((btn) => {
+		if (
+			btn.classList.contains("btn-dark") ||
+			btn.classList.contains("btn-light")
+		) {
+			btn.classList.toggle("btn-dark");
+			btn.classList.toggle("btn-light");
+		}
+
+		if (btn.classList.contains("extraBtn")) {
+			btn.classList.toggle("btn-outline-dark");
+			btn.classList.toggle("btn-outline-light");
+		}
+	});
+});
 
 function showOvers() {
 	balls++;
@@ -17,7 +43,7 @@ function showOvers() {
 		balls = 0;
 	}
 
-	document.querySelector(".overs").textContent = `${overs}.${balls}`;
+	document.querySelector(".overs").textContent = `Overs: ${overs}.${balls}`;
 }
 function addRuns(run) {
 	totalRuns += Number(run);
@@ -56,7 +82,7 @@ function reset() {
 	totalRuns = 0;
 	wickets = 0;
 
-	document.querySelector(".overs").textContent = `${overs}.${balls}`;
+	document.querySelector(".overs").textContent = `Overs: ${overs}.${balls}`;
 	displayScoreboard();
 }
 resetBtn.addEventListener("click", reset);
