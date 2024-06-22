@@ -9,6 +9,7 @@ var wickets = 0;
 
 var darkMode = false;
 
+
 toggleMode.addEventListener("click", function () {
 	darkMode = !darkMode;
 	toggleMode.innerHTML = darkMode ? "Light Mode" : "Dark Mode";
